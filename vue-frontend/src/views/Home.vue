@@ -7,9 +7,10 @@
         v-for="fetchedEmployee in fetchedEmployees"
         :key="fetchedEmployee.id"
       >
+        {{ fetchedEmployee.id }}
         <employee-card
           v-bind:employee="fetchedEmployee.employee"
-          v-bind:id="fetchedEmployees.id"
+          v-bind:id="fetchedEmployee.id"
           v-bind:score="fetchedEmployee.score"
         />
       </div>
