@@ -22,4 +22,5 @@ from voting import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/employees/', views.EmployeeList.as_view()),
+    path('api/winners/', views.WinnersList.as_view()),
 ]
