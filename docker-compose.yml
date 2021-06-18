@@ -1,0 +1,22 @@
+version: "3.8"
+
+# used variable so its easy to setup to test
+# I wouldn't do this in production
+x-database-variables: &database-variables
+  POSTGRES_USER: djangouser
+  POSTGRES_PASSWORD: djangopostgres
+  POSTGRES_DB: voting
+  POSTGRES_HOST: postgres
+
+services:
+  postgres:
+    image: postgres:13-alpine
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    restart: always
+    environment: *database-variables
+    ports:
+      - "5432"
+
+volumes:
+  db-data:
