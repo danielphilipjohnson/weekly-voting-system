@@ -9,6 +9,20 @@ x-database-variables: &database-variables
   POSTGRES_HOST: postgres
 
 services:
+  web:
+    image: django-postgres
+    build:
+      context: .
+    command: >
+      sh -c "
+        python manage.py migrate  &&           
+        python manage.py runserver 0.0.0.0:8088"
+    ports:
+      - 8088:8088
+    volumes: *service-volumes
+    environment: *app-variables
+    depends_on:
+      - postgres
   postgres:
     image: postgres:13-alpine
     volumes:
