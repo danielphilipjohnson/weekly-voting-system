@@ -3,14 +3,14 @@
     <img
       class="mb-4 mx-auto w-28 h-28 rounded-full"
       src="https://source.unsplash.com/random"
-      alt=""
+      alt="profile"
     />
-    <h1 class="text-center mb-2">{{ employee.name }}</h1>
+    <h1 class="mb-2 text-center">{{ employee.name }}</h1>
 
-    <p class="text-center mb-4">{{ employee.nickname }}</p>
-    <p class="py-2 pb-4 text-xl">Total votes: {{ score }}</p>
+    <p class="mb-4 text-center">{{ employee.nickname }}</p>
+    <p class="pt-2 pb-4 text-xl">Total votes: {{ score }}</p>
 
-    <div class="flex justify-between items-between text-2xl mb-4">
+    <div class="flex justify-between items-between mb-4 text-2xl">
       <i class="fab fa-linkedin-in"></i>
       <i class="fab fa-github"></i>
       <i class="fab fa-twitter"></i>
@@ -20,6 +20,7 @@
       class="
         w-full
         border-2 border-gray-600
+        rounded-full
         my-2
         p-2
         text-gray-500 text-sm
@@ -27,9 +28,8 @@
         font-bold
         leading-loose
         tracking-widest
-        rounded-full
         hover:bg-gray-600 hover:text-white
-        disabled:opacity-50 disabled:bg-gray-600
+        disabled:bg-gray-600
       "
     >
       Vote for me
