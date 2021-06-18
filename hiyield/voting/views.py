@@ -11,4 +11,3 @@ class EmployeeList(APIView):
         serializer = EmployeeSerializer(employees, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
-    
