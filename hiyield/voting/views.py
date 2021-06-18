@@ -38,3 +38,28 @@ class WinnersList(APIView):
         winners = Winner.objects.order_by('-score')
         serializer = WinnerSerializer(winners, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
+    def get_object(self, winner_id):
+        try:
+            return Winner.objects.get(pk=winner_id)
+        except Winner.DoesNotExist:
+            raise Http404
+
+    def put(self, request, winner_id):
+        # In practice would check 
+        # permission_classes = [
+        #     permissions.IsAuthenticated,
+        # ]
+
+        # then filter the object by request.user.id to possibly prevent people voting themselves
+        winner_instance = self.get_object(winner_id)
+        data = {
+            "score": winner_instance.score + 1
+        }
+
+        serializer = WinnerSerializer(instance=winner_instance, data=data, partial = True)
+       
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
