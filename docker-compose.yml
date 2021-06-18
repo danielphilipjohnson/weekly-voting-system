@@ -1,5 +1,17 @@
 version: "3.8"
 
+x-service-volumes: &service-volumes
+  - ./hiyield:/hiyield/:rw,cached
+  - ./data/web:/vol/web
+
+x-app-variables: &app-variables
+  <<: *database-variables
+  POSTGRES_HOST: postgres
+  DEBUG: 1
+  SECRET_KEY: "supersupersecret"
+  ALLOWED_HOSTS: 0.0.0.0
+
+
 # used variable so its easy to setup to test
 # I wouldn't do this in production
 x-database-variables: &database-variables
