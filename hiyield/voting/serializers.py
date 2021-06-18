@@ -6,9 +6,9 @@ class EmployeeSerializer(serializers.ModelSerializer):
     model = Employee 
     fields = '__all__'
     
-# class WinnerSerializer(serializers.ModelSerializer):
-#   employee = EmployeeSerializer(many=False)
-#   class Meta:
-#     model = Winner
-#     ordering = ['score']
-#     fields =  '__all__'
+class WinnerSerializer(serializers.ModelSerializer):
+  employee = EmployeeSerializer(many=False)
+  class Meta:
+    model = Winner
+    ordering = ['score']
+    fields =  '__all__'
