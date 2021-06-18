@@ -27,7 +27,6 @@ export default createStore({
     async getEmployees({ commit }) {
       try {
         const response = await axios.get("api/winners/");
-        console.log(response);
         commit("SET_EMPLOYEES", response.data);
       } catch (error) {
         console.error(error);
