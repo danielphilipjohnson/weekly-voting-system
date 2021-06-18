@@ -44,6 +44,13 @@ class WinnersList(APIView):
         except Winner.DoesNotExist:
             raise Http404
 
+class WinnerIncreaseScore(APIView):
+    def get_object(self, winner_id):
+        try:
+            return Winner.objects.get(pk=winner_id)
+        except Winner.DoesNotExist:
+            raise Http404
+
     def put(self, request, winner_id):
         # In practice would check 
         # permission_classes = [
