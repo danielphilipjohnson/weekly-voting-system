@@ -8,7 +8,7 @@
     <h1 class="mb-2 text-center">{{ employee.name }}</h1>
 
     <p class="mb-4 text-center">{{ employee.nickname }}</p>
-    <p class="py-2 pb-4 text-xl">Total votes: {{ score }}</p>
+    <p class="pt-2 pb-4 text-xl">Total votes: {{ score }}</p>
 
     <div class="flex justify-between items-between mb-4 text-2xl">
       <i class="fab fa-linkedin-in"></i>
