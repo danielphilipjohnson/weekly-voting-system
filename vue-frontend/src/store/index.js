@@ -1,4 +1,5 @@
 import { createStore } from "vuex";
+import axios from "axios";
 
 export default createStore({
   state: {
@@ -12,6 +13,16 @@ export default createStore({
       state.employees = employees;
     },
   },
-  actions: {},
+  actions: {
+    async getEmployees({ commit }) {
+      try {
+        const response = await axios.get("api/winners/");
+        console.log(response);
+        commit("SET_EMPLOYEES", response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    },
+  },
   modules: {},
 });

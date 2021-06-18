@@ -17,5 +17,8 @@ export default {
   components: {
     EmployeeCard,
   },
+  mounted() {
+    this.$store.dispatch("getEmployees");
+  },
 };
 </script>
